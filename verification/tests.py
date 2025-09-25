@@ -11,26 +11,82 @@ Each test is a dict with
 TESTS = {
     "Basics": [
         {
-            "input": [3, 2],
-            "answer": 5,
-            "explanation": "3+2=?"
+            "input": ["Succulent", 11, True],
+            "answer": "Do not water",
         },
         {
-            "input": [5, 7],
-            "answer": 12,
-            "explanation": "5+7=?"
+            "input": ["Tropical", 3, False],
+            "answer": "Check the soil again tomorrow",
+        },
+        {
+            "input": ["Default", 8, False],
+            "answer": "Water the plant",
+        },
+        {
+            "input": ["Plant", 8, False],
+            "answer": "Unknown plant type",
         },
     ],
     "Extra": [
         {
-            "input": [6, 3],
-            "answer": 9,
-            "explanation": "6+3=?"
+            "input": ["Succulent", 11, False],
+            "answer": "Do not water",
         },
         {
-            "input": [6, 7],
-            "answer": 13,
-            "explanation": "6+7=?"
+            "input": ["Succulent", 12, True],
+            "answer": "Do not water",
+        },
+        {
+            "input": ["Succulent", 12, False],
+            "answer": "Check the soil again tomorrow",
+        },
+        {
+            "input": ["Succulent", 13, True],
+            "answer": "Do not water",
+        },
+        {
+            "input": ["Succulent", 13, False],
+            "answer": "Water the plant",
+        },
+        {
+            "input": ["Tropical", 2, True],
+            "answer": "Do not water",
+        },
+        {
+            "input": ["Tropical", 2, False],
+            "answer": "Do not water",
+        },
+        {
+            "input": ["Tropical", 3, True],
+            "answer": "Do not water",
+        },
+        {
+            "input": ["Tropical", 4, True],
+            "answer": "Do not water",
+        },
+        {
+            "input": ["Tropical", 4, False],
+            "answer": "Water the plant",
+        },
+        {
+            "input": ["Default", 6, True],
+            "answer": "Do not water",
+        },
+        {
+            "input": ["Default", 6, False],
+            "answer": "Do not water",
+        },
+        {
+            "input": ["Default", 7, True],
+            "answer": "Do not water",
+        },
+        {
+            "input": ["Default", 7, False],
+            "answer": "Check the soil again tomorrow",
+        },
+        {
+            "input": ["Default", 8, True],
+            "answer": "Do not water",
         },
     ]
 }

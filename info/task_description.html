@@ -1,20 +1,49 @@
 <!-- Describe task in general -->
-<!-- <img src="{{MEDIA_CONVERT}}title.png" class="title_img" /> -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
 <p style="text-align: justify;">
-    Sum two passed ints
+    Welcome to the greenhouse! Your mission is to create a "smart" assistant that can give perfect watering advice for different types of plants. You'll write a function that acts as the brain of this assistant.
 </p>
 
-<p style="text-align: center;">
-    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+<p style="text-align: justify;"><strong>
+    The Rules of Botany (and Function Logic):
+</strong></p>
+
+<ol>
+    <li><p style="text-align: justify;">
+        <strong>The Safety Rule</strong> - If the soil is already damp (<code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> is <code>{% if is_js %}t{% else %}T{% endif %}rue</code>), you should never water the plant, regardless of any other condition.
+    </p></li>
+    <li><p style="text-align: justify;">
+        <strong>Succulents</strong> - These desert plants are sensitive to overwatering. Do not water them if they have been watered in the last 12 days.
+    </p></li>
+    <li><p style="text-align: justify;">
+        <strong>Tropicals</strong> - These plants love moisture. Water them if it has been more than 3 days since their last watering.
+    </p></li>
+    <li><p style="text-align: justify;">
+        <strong>All Other Plants (Default)</strong> - For any other plant type, follow a general rule: water them if it has been more than 7 days since their last watering.
+    </p></li>
+    <li><p style="text-align: justify;">
+        <strong>Error Handling</strong> - if <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> is not one of the types you handle, return respective message.
+    </p></li>
+    <li><p style="text-align: justify;">
+        <strong>Borderline Cases</strong> - If it's the last day of a period, recommend to check at the next day.
+    </li></p>
+</ol>
+
+<p style="text-align: justify;">
+    Based on a set of rules, the function must return a string with the correct advice: <code>"Do not water"</code>, <code>"Water the plant"</code>, <code>"Unknown plant type"</code> or <code>"Check the soil again tomorrow"</code>.
 </p>
+
+<!-- <p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p> -->
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input:</strong> Two arguments. Both are ints.
+    <strong>Input:</strong> Three arguments: <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> as string <span translate="no">(str{% if is_js %}ing{% endif %})</span>, <code>{% if is_js %}daysSinceWatering{% else %}days_since_watering{% endif %}</code> as integer <span translate="no">({% if is_js %}number{% else %}int{% endif %})</span> and <code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> as logic value <span translate="no">(bool{% if is_js %}ean{% endif %})</span>.
 </p>
 
 <p>
-    <strong>Output:</strong> Int. 
+    <strong>Output:</strong> String. 
 </p>
 
 
