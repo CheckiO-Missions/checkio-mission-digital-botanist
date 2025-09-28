@@ -13,13 +13,13 @@
         <strong>The Safety Rule</strong> - If the soil is already damp (<code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> is <code>{% if is_js %}t{% else %}T{% endif %}rue</code>), you should never water the plant, regardless of any other condition.
     </p></li>
     <li><p style="text-align: justify;">
-        <strong>Succulents</strong> - These desert plants are sensitive to overwatering. Do not water them if they have been watered in the last 12 days.
+        <strong>Succulents (<code>"Succulent"</code>)</strong> - These desert plants are sensitive to overwatering. Do not water them if they have been watered in the last 12 days.
     </p></li>
     <li><p style="text-align: justify;">
-        <strong>Tropicals</strong> - These plants love moisture. Water them if it has been more than 3 days since their last watering.
+        <strong>Tropicals (<code>"Tropical"</code>)</strong> - These plants love moisture. Water them if it has been more than 3 days since their last watering.
     </p></li>
     <li><p style="text-align: justify;">
-        <strong>All Other Plants (Default)</strong> - For any other plant type, follow a general rule: water them if it has been more than 7 days since their last watering.
+        <strong>All Other Plants (<code>"Default"</code>)</strong> - For any other plant type, follow a general rule: water them if it has been more than 7 days since their last watering.
     </p></li>
     <li><p style="text-align: justify;">
         <strong>Error Handling</strong> - if <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> is not one of the types you handle, return respective message.
