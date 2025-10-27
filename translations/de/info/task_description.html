@@ -1,0 +1,71 @@
+<!-- Describe task in general -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+<p style="text-align: justify;">
+    Willkommen im Gewächshaus! Ihre Aufgabe ist es, einen "intelligenten" Assistenten zu entwickeln, der perfekte Bewässerungstipps für verschiedene Arten von Pflanzen geben kann. Sie werden eine Funktion schreiben, die als Gehirn dieses Assistenten fungiert.
+</p>
+
+<p style="text-align: justify;"><strong>
+    Die Regeln der Botanik (und Funktionslogik):
+</strong></p>
+
+<ol>
+    <li><p style="text-align: justify;">
+       <strong>Die Sicherheitsregel</strong> - Wenn der Boden bereits feucht ist (<code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> ist <code>{% if is_js %}t{% else %}T{% endif %}rue</code>), sollten Sie die Pflanze niemals gießen, unabhängig von allen anderen Bedingungen.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Sukkulenten (<code>"Succulent"</code></strong> ) - Diese Wüstenpflanzen sind empfindlich gegenüber Überwässerung. Gießen Sie sie nicht, wenn sie in den letzten 12 Tagen gegossen worden sind.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Tropenpflanzen (<code>"Tropical"</code></strong> ) - Diese Pflanzen lieben Feuchtigkeit. Gießen Sie sie, wenn seit der letzten Bewässerung mehr als 3 Tage vergangen sind.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Alle anderen Pflanzen (<code>"Default"</code></strong> ) - Für alle anderen Pflanzenarten gilt die allgemeine Regel: Gießen Sie sie, wenn seit der letzten Bewässerung mehr als 7 Tage vergangen sind.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Fehlerbehandlung</strong> - wenn <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> nicht zu den Typen gehört, die Sie behandeln, geben Sie die entsprechende Meldung zurück.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Grenzfälle</strong> - Wenn es der letzte Tag einer Periode ist, empfehlen wir, am nächsten Tag zu prüfen.
+    </li></p>
+</ol>
+
+<p style="text-align: justify;">
+    Basierend auf einer Reihe von Regeln muss die Funktion eine Zeichenkette mit dem richtigen Hinweis zurückgeben: <code>"Do not water"</code>, <code>"Water the plant"</code>, <code>"Unknown plant type"</code> oder <code>"Check the soil again tomorrow"</code>.
+</p>
+
+<!-- <p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p> -->
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> Drei Argumente: <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> als Zeichenkette <span>(str{% if is_js %}ing{% endif %})</span>, <code>{% if is_js %}daysSinceWatering{% else %}days_since_watering{% endif %}</code> als Ganzzahl <span>({% if is_js %}number{% else %}int{% endif %})</span> und <code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> als logischer Wert <span>(bool{% if is_js %}ean{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> String. 
+</p>
+
+
+<p>
+    <strong>Beispiele:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
