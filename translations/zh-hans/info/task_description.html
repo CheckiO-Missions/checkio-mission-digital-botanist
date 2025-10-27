@@ -1,0 +1,71 @@
+<!-- Describe task in general -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+<p style="text-align: justify;">
+    欢迎来到温室！您的任务是创建一个 "智能 "助手，为不同类型的植物提供完美的浇水建议。你将编写一个函数，作为这个助手的大脑。
+</p>
+
+<p style="text-align: justify;"><strong>
+    植物学规则（和函数逻辑）：
+</strong></p>
+
+<ol>
+    <li><p style="text-align: justify;">
+       <strong>安全规则</strong>- 如果土壤已经潮湿（是<code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code>是 <code>{% if is_js %}t{% else %}T{% endif %}rue</code>），无论其他条件如何，都不应该给植物浇水。
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>多肉植物 (<code>"Succulent"</code></strong>) - 这些沙漠植物对浇水过多很敏感。如果在过去 12 天内浇过水，就不要给它们浇水。
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>热带植物 (<code>"Tropical"</code></strong>) - 这些植物喜欢湿润。如果距离上次浇水已超过 3 天，请浇水。
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>所有其他植物 (<code>"Default"</code></strong>) - 对于任何其他类型的植物，请遵循一般规则：如果距离上次浇水已超过 7 天，则应浇水。
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>错误处理</strong>- 如果 <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code>不属于您要处理的类型，则返回相应的信息。
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>边缘情况</strong>- 如果是某一时期的最后一天，建议在第二天进行检查。
+    </li></p>
+</ol>
+
+<p style="text-align: justify;">
+    根据一系列规则，函数必须返回一个包含正确建议的字符串：<code>"Do not water"</code>,<code>"Water the plant"</code>,<code>"Unknown plant type"</code> 或<code>"Check the soil again tomorrow"</code> 。
+</p>
+
+<!-- <p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p> -->
+
+<!-- Explain input and output values -->
+<p>
+   <strong>输入：</strong>三个参数： <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code>作为字符串 <span>(str{% if is_js %}ing{% endif %})</span>, <code>{% if is_js %}daysSinceWatering{% else %}days_since_watering{% endif %}</code>整数 <span>({% if is_js %}number{% else %}int{% endif %})</span>和 <code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code>作为逻辑值 <span>(bool{% if is_js %}ean{% endif %})</span>.
+</p>
+
+<p>
+   <strong>输出：</strong>字符串。 
+</p>
+
+
+<p>
+    <strong>例子</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
