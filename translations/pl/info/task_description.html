@@ -1,0 +1,71 @@
+<!-- Describe task in general -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+<p style="text-align: justify;">
+    Witamy w szklarni! Państwa zadaniem jest stworzenie "inteligentnego" asystenta, który będzie w stanie udzielić idealnych porad dotyczących podlewania różnych rodzajów roślin. Napiszą Państwo funkcję, która będzie mózgiem tego asystenta.
+</p>
+
+<p style="text-align: justify;"><strong>
+    Zasady botaniki (i logiki funkcji):
+</strong></p>
+
+<ol>
+    <li><p style="text-align: justify;">
+       <strong>Reguła bezpieczeństwa</strong> - Jeśli gleba jest już wilgotna (<code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> jest <code>{% if is_js %}t{% else %}T{% endif %}rue</code>), nigdy nie należy podlewać rośliny, niezależnie od innych warunków.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Sukulenty (<code>"Succulent"</code></strong> ) - Te pustynne rośliny są wrażliwe na nadmierne podlewanie. Nie należy ich podlewać, jeśli były podlewane w ciągu ostatnich 12 dni.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Rośliny tropikalne (<code>"Tropical"</code></strong> ) - Rośliny te uwielbiają wilgoć. Proszę je podlewać, jeśli od ostatniego podlewania minęły więcej niż 3 dni.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Wszystkie inne rośliny (<code>"Default"</code></strong> ) - W przypadku każdego innego rodzaju roślin należy postępować zgodnie z ogólną zasadą: podlewać je, jeśli od ostatniego podlewania minęło więcej niż 7 dni.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Obsługa błędów</strong> - jeśli <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> nie jest jednym z obsługiwanych typów, proszę zwrócić odpowiedni komunikat.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Przypadki graniczne</strong> - jeśli jest to ostatni dzień okresu, zalecamy sprawdzenie następnego dnia.
+    </li></p>
+</ol>
+
+<p style="text-align: justify;">
+    W oparciu o zestaw reguł funkcja musi zwrócić ciąg znaków z prawidłową poradą: <code>"Do not water"</code>, <code>"Water the plant"</code>, <code>"Unknown plant type"</code> lub <code>"Check the soil again tomorrow"</code>.
+</p>
+
+<!-- <p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p> -->
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Dane wejściowe:</strong> Trzy argumenty: <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> as string <span>(str{% if is_js %}ing{% endif %})</span>, <code>{% if is_js %}daysSinceWatering{% else %}days_since_watering{% endif %}</code> jako liczba całkowita <span>({% if is_js %}number{% else %}int{% endif %})</span> i <code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> jako wartość logiczna <span>(bool{% if is_js %}ean{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Wyjście:</strong> String. 
+</p>
+
+
+<p>
+    <strong>Przykłady:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
