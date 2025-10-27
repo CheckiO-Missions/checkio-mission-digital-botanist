@@ -1,0 +1,71 @@
+<!-- Describe task in general -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+<p style="text-align: justify;">
+    Bienvenue dans la serre! Votre mission consiste à créer un assistant "intelligent" capable de donner des conseils d'arrosage parfaits pour différents types de plantes. Vous écrirez une fonction qui sera le cerveau de cet assistant.
+</p>
+
+<p style="text-align: justify;"><strong>
+    Les règles de la botanique (et la logique des fonctions):
+</strong></p>
+
+<ol>
+    <li><p style="text-align: justify;">
+       <strong>La règle de sécurité</strong> - Si le sol est déjà humide (<code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> est <code>{% if is_js %}t{% else %}T{% endif %}rue</code>), vous ne devez jamais arroser la plante, quelles que soient les autres conditions.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Succulentes (<code>"Succulent"</code></strong> ) - Ces plantes du désert sont sensibles à l'arrosage excessif. Ne les arrosez pas si elles ont été arrosées au cours des 12 derniers jours.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Tropicales (<code>"Tropical"</code></strong> ) - Ces plantes aiment l'humidité. Arrosez-les si leur dernier arrosage remonte à plus de 3 jours.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Toutes les autres plantes (<code>"Default"</code></strong> ) - Pour tous les autres types de plantes, suivez la règle générale: arrosez-les s'il s'est écoulé plus de 7 jours depuis leur dernier arrosage.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Gestion des erreurs</strong> - si <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> n'est pas l'un des types que vous gérez, renvoyez le message correspondant.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Cas limites</strong> - Si c'est le dernier jour d'une période, recommandez de vérifier le jour suivant.
+    </li></p>
+</ol>
+
+<p style="text-align: justify;">
+    Sur la base d'un ensemble de règles, la fonction doit renvoyer une chaîne de caractères contenant les conseils appropriés: <code>"Do not water"</code>, <code>"Water the plant"</code>, <code>"Unknown plant type"</code> ou <code>"Check the soil again tomorrow"</code>.
+</p>
+
+<!-- <p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p> -->
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Entrée:</strong> Trois arguments: <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> comme chaîne <span>(str{% if is_js %}ing{% endif %})</span>, <code>{% if is_js %}daysSinceWatering{% else %}days_since_watering{% endif %}</code> sous forme d'entier <span>({% if is_js %}number{% else %}int{% endif %})</span> et <code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> comme valeur logique <span>(bool{% if is_js %}ean{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Sortie:</strong> Chaîne. 
+</p>
+
+
+<p>
+    <strong>Exemples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
