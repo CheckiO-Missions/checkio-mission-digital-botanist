@@ -1,0 +1,71 @@
+<!-- Describe task in general -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+<p style="text-align: justify;">
+    Ласкаво просимо до теплиці! Ваша місія - створити "розумного" помічника, який може давати ідеальні поради щодо поливу різних типів рослин. Вам потрібно написати функцію, яка буде виконувати роль мозку цього помічника.
+</p>
+
+<p style="text-align: justify;"><strong>
+    Правила ботаніки (і логіка функцій):
+</strong></p>
+
+<ol>
+    <li><p style="text-align: justify;">
+       <strong>Правило безпеки</strong> - якщо ґрунт вже вологий (<code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> є <code>{% if is_js %}t{% else %}T{% endif %}rue</code>), ви ніколи не повинні поливати рослину, незалежно від будь-яких інших умов.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Сукуленти (<code>"Succulent"</code></strong> ) - ці пустельні рослини чутливі до надмірного поливу. Не поливайте їх, якщо їх поливали протягом останніх 12 днів.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Тропічні (<code>"Tropical"</code></strong> ) - ці рослини люблять вологу. Поливайте їх, якщо з моменту останнього поливу пройшло більше 3 днів.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Всі інші рослини (<code>"Default"</code></strong> ) - Для будь-якого іншого типу рослин дотримуйтесь загального правила: поливайте їх, якщо з моменту останнього поливу пройшло більше 7 днів.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Обробка помилок</strong> - якщо <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> не належить до типів, які ви обробляєте, поверніть відповідне повідомлення.
+    </p></li>
+    <li><p style="text-align: justify;">
+       <strong>Пограничні випадки</strong> - якщо це останній день менструації, рекомендуємо перевірити наступного дня.
+    </li></p>
+</ol>
+
+<p style="text-align: justify;">
+    На основі набору правил функція повинна повернути рядок з правильною порадою: <code>"Do not water"</code>, <code>"Water the plant"</code>, <code>"Unknown plant type"</code> або <code>"Check the soil again tomorrow"</code>.
+</p>
+
+<!-- <p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p> -->
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Вхідні дані:</strong> Три аргументи: <code>{% if is_js %}plantType{% else %}plant_type{% endif %}</code> як рядок <span>(str{% if is_js %}ing{% endif %})</span>, <code>{% if is_js %}daysSinceWatering{% else %}days_since_watering{% endif %}</code> як ціле число <span>({% if is_js %}number{% else %}int{% endif %})</span> та <code>{% if is_js %}isSoilDamp{% else %}is_soil_damp{% endif %}</code> як логічне значення <span>(bool{% if is_js %}ean{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Вихідні дані:</strong> Рядок. 
+</p>
+
+
+<p>
+    <strong>Приклади:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
